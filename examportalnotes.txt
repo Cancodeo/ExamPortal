@@ -1,0 +1,45 @@
+
+-> First make Flow of Project
+-> divide the pojects in Module
+-> first is Login Module
+
+-Spring set up for login
+-> Make Spring Boot project
+-> configure app properties file for connecting to database and establish connection with MYSQL database
+-> Entity relationship diagram-> User, Role, user_role
+-> Make Entity class -> User, Role, user_role
+-> note: User -> user_role -> one to Many Relation 
+	 Role -> user_role -> one to Many Relation
+	 UserRole -> user,role -> many to one Relation
+-> Make UserRepository, RoleRepository interface for performing operation on database. Extends JpaRepository<User,Long> {findByUsername(String username)}. 
+-> Make UserService interface for declaring createUser, getUser, deleteUser functions
+-> Make ServiceImpl for implementation of UserService interface methods
+-> Make controller class for routing and calling functions on /user/ -> createUser, user/{username} -> getUser, user{id} -> deleteUser
+-> Make UserDetailsServiceImpl which implements UserDetailsService -> loadUserByUsername(String username) -> returns UserDetails object 
+
+
+-ANGUAR
+-> check node js
+-> go to angularCLI -> npm install -g @angular/cli
+-> ng new my-first-project
+   cd my-first-project
+   ng serve
+-> install angular material -> ng add @angular/material
+-> install bootstrap-grid-only-css -> confiure in angular.json file
+-> in app/src -> make 2 folders
+	-components -> this will have all reusable components such as navbar, header, footer, card etc. Every components have 4 files -> html, css, ts(typescript), test file
+			ng g c navbar, ng g c footer -> g means generate, c means component.
+	-pages -> this will have all the pages and routes such as /signup , /login etc. Need to add the routing page to app-routing-module in routes. 
+		  Then use <router-outlet></router-outlet> to place it where you want. But this router-outlet will only work when that particular router is fired on browser.
+-> use material angular package in app.modules.ps and then use directly.
+-> Form is ready with help of boostrap-grid, material inputs, and buttons
+
+-> Angular Data binding
+ - import FormsModule in app.modules.ps
+ - in form tag -> (ngSubmit)="formSubmit()" -> declare formSubmit() in typescript file -> declare User object for all varibles/fields in backend
+ - in input tag -> [(ngModel)] = "user.username", name="username" include both these fields
+ - as you fill the form the user object will get populated.
+
+->
+
+-Spring JWT 
